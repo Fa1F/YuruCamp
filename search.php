@@ -34,5 +34,5 @@ foreach ($limitedCampsites as $campsite) {
 
 
 // Output the JSON response
-echo json_encode(array('ids' => $campsiteID, 'links' => $imageLinks, 'names' => $imageName));
+echo json_encode(array('ids' => $campsiteIDs, 'links' => $imageLinks, 'names' => $imageName));
 ?>
