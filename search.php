@@ -32,13 +32,7 @@ foreach ($limitedCampsites as $campsite) {
     $imageNames[] = $campsite['name'];
 }
 
-// Prepare the JSON response
-$response = [
-    'ids' => $campsiteIDs,
-    'links' => $imageLinks,
-    'names' => $imageNames,
-];
 
 // Output the JSON response
-echo json_encode($response);
+echo json_encode(array('ids' => $campsiteID, 'links' => $imageLinks, 'names' => $imageName));
 ?>
