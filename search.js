@@ -45,7 +45,7 @@ window.ontouchmove = e => handleOnMove(e.touches[0]);
 // Buka link
 function openKonten(event) {
     var id = $(event.target).data("id");
-    window.open("http://127.0.0.1/projek/konten.html?id=" + id, "_self")
+    window.open("https://fa1f.github.io/YuruCamp/konten.html?id=" + id, "_self")
 }
 
 // Untuk footer
