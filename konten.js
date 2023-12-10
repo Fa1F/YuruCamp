@@ -4,7 +4,7 @@ const jsonData = `{
       {
         "id": 1,
         "name": "Lake Myvatn, Northern Iceland",
-        "coor": "https://www.google.com/maps/place/65.60",
+        "coor": "https://www.google.com/maps/place/65.60%C2%B0N,16.99%C2%B0W",
         "img1": "https://images.unsplash.com/photo-1655536103884-206fc6837a4a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "img2": "https://images.unsplash.com/photo-1664264757075-4f793ddb16e3?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "img3": "https://images.unsplash.com/photo-1523833880474-ff8e11a7ddb2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -131,7 +131,7 @@ function fetchCampTable(id) {
     $("#pic2").css("background-image", "url('" + gambar2 + "')");
     $("#pic3").css("background-image", "url('" + gambar3 + "')");
     $("#pic4").css("background-image", "url('" + gambar4 + "')");
-    $("#book").attr('href', "http://127.0.0.1/projek/book.html?id=" + id);
+    $("#book").attr('href', "https://fa1f.github.io/YuruCamp/book.html?id=" + id);
 }
 
 $(document).ready(function () {
