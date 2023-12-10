@@ -1,7 +1,7 @@
 :root {
 
     --c1: rgb(49,31,98);
-    --c2: (195,114,124);
+    --c2: rgb(195,114,124);
 
     --left-color: var(--c1);
     --right-color: var(--c2);
