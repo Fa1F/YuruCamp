@@ -1,60 +1,38 @@
-const wrapper = document.getElementById("tiles");
+const left = document.getElementById("left-side");
 
-let columns = 0,
-    rows = 0,
-    toggled = false;
-
-const toggle = () => {
-    toggled = !toggled;
-
-    document.body.classList.toggle("toggled");
+const handleMove = e => {
+  left.style.width = `${e.clientX / window.innerWidth * 100}%`;
 }
 
-const handleOnClick = index => {
-    toggle();
+document.onmousemove = e => handleMove(e);
 
-    anime({
-        targets: ".tile",
-        opacity: toggled ? 0 : 1,
-        delay: anime.stagger(50, {
-            grid: [columns, rows],
-            from: index
-        })
-    });
+document.ontouchmove = e => handleMove(e.touches[0]);
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let interval = null;
+
+document.querySelector("span").onmouseover = event => {  
+  let iteration = 0;
+  
+  clearInterval(interval);
+  
+  interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if(index < iteration) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26)]
+      })
+      .join("");
+    
+    if(iteration >= event.target.dataset.value.length){ 
+      clearInterval(interval);
+    }
+    
+    iteration += 1 / 3;
+  }, 30);
 }
-
-const createTile = index => {
-    const tile = document.createElement("div");
-
-    tile.classList.add("tile");
-
-    tile.style.opacity = toggled ? 0 : 1;
-
-    tile.onclick = e => handleOnClick(index);
-
-    return tile;
-}
-
-const createTiles = quantity => {
-    Array.from(Array(quantity)).map((tile, index) => {
-        wrapper.appendChild(createTile(index));
-    });
-}
-
-const createGrid = () => {
-    wrapper.innerHTML = "";
-
-    const size = document.body.clientWidth > 800 ? 100 : 50;
-
-    columns = Math.floor(document.body.clientWidth / size);
-    rows = Math.floor(document.body.clientHeight / size);
-
-    wrapper.style.setProperty("--columns", columns);
-    wrapper.style.setProperty("--rows", rows);
-
-    createTiles(columns * rows);
-}
-
-createGrid();
-
-window.onresize = () => createGrid();
