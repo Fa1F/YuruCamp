@@ -67,6 +67,8 @@ $(document).ready(function () {
         var imgName = responseData.names;
         var campID = responseData.ids;
 
+        console.log(imageLink + "+" + imgName + "+" + campID);
+
         var imageTrack = $("#image-track");
         imageLink.forEach(function (link, index) {
             var img = $("<img>").addClass("image").attr("src", link).attr("draggable", "false").data("name", imgName[index]).data("id", campID[index]);
