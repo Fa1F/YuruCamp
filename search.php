@@ -4,53 +4,41 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
-$servername = "localhost";
-$username = "projek";
-$password = "K43rUL4_4rB0R";
-$dbname = "caerula";
-
-// Buat Koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Cek Koneksi
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Read data from JSON file
+$jsonData = file_get_contents('campsites.json');
+$campsites = json_decode($jsonData, true)['campsite_en'];
 
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
-$sql = "SELECT * FROM campsite_en";
-
-// Kalu searchnya empty, batasi 10 gambar
-$sql .= !empty($searchTerm) ? " WHERE name LIKE ?" : " LIMIT 10";
-
-$stmt = $conn->prepare($sql);
-
-if (!empty($searchTerm)) {
-    
-    $searchPattern = "%$searchTerm%";
-    $stmt->bind_param("s", $searchPattern);
-}
-
-$stmt->execute();
-$result = $stmt->get_result();
-// $result = $conn->query($sql);
-$imageLinks = [];
-// $imgName = [];
-
-if ($result->num_rows > 0) {
-    // Ambil link gambar
-    while ($row = $result->fetch_assoc()) {
-        $campsiteID[] = $row['id'];
-        $imageLinks[] = $row['img1'];
-        $imageName[] = $row['name'];
+// Filter campsites based on the search term
+$filteredCampsites = [];
+foreach ($campsites as $campsite) {
+    if (empty($searchTerm) || stripos($campsite['name'], $searchTerm) !== false) {
+        $filteredCampsites[] = $campsite;
     }
 }
 
-$conn->close();
-$stmt->close();
+// Limit the number of results to 10
+$limitedCampsites = array_slice($filteredCampsites, 0, 10);
 
-// echo json_encode($imageLinks);
-echo json_encode(array('ids' => $campsiteID, 'links' => $imageLinks, 'names' => $imageName));
+$campsiteIDs = [];
+$imageLinks = [];
+$imageNames = [];
+
+// Extract information from the filtered and limited campsites
+foreach ($limitedCampsites as $campsite) {
+    $campsiteIDs[] = $campsite['id'];
+    $imageLinks[] = $campsite['img1'];
+    $imageNames[] = $campsite['name'];
+}
+
+// Prepare the JSON response
+$response = [
+    'ids' => $campsiteIDs,
+    'links' => $imageLinks,
+    'names' => $imageNames,
+];
+
+// Output the JSON response
+echo json_encode($response);
 ?>
