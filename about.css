@@ -1,10 +1,7 @@
 :root {
-    --dark: rgb(20, 20, 20);
-    --yellow: rgb(253, 216, 53);
-    --blue: rgb(98, 0, 234);
 
-    --c1: rgb(3, 7, 18);
-    --c2: rgb(163, 230, 53);
+    --c1: rgb(49,31,98);
+    --c2: (195,114,124);
 
     --left-color: var(--c1);
     --right-color: var(--c2);
