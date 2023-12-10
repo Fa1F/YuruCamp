@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konten</title>
+    <link rel="stylesheet" href="konten.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://kit.fontawesome.com/5e78f060a2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav data-toggled="false" data-transitionable="false">
+        <div id="nav-logo-section" class="nav-section">
+            <a href="https://fa1f.github.io/YuruCamp/index.html">
+                <i class="fa-solid fa-dumpster-fire"></i>
+            </a>
+        </div>
+        <div id="nav-mobile-section">
+            <div id="nav-link-section" class="nav-section">
+                <a href="https://fa1f.github.io/YuruCamp/login.html">SIGN IN</a>
+                <a href="https://fa1f.github.io/YuruCamp/login.html">SIGN UP</a>
+            </div>
+            <div id="nav-social-section" class="nav-section">
+                <a href="https://fa1f.github.io/YuruCamp/search.html">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="https://fa1f.github.io/YuruCamp/book.html" id="book">
+                    <i class="fa-solid fa-ticket"></i>
+                </a>
+                <!-- koordinat seperti https://www.google.com/maps/place/27.9881°N86.9250°E -->
+                <a href="#" target="_blank" id="koordinat">
+                    <i class="fa-solid fa-map"></i>
+                </a>
+            </div>
+            <div id="nav-contact-section" class="nav-section">
+                <a href="https://fa1f.github.io/YuruCamp/about.html">ABOUT US</a>
+            </div>
+        </div>
+        <button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
+            <span>Menu</span>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+    <main>
+        <article data-index="0" data-status="active">
+            <div class="article-image-section article-section" id="pic1"></div>
+            <div class="article-description-section article-section">
+                <!-- artikel 1 -->
+                <p id="artikel1">
+                        Nestled in the breathtaking landscapes of northern Iceland, Lake Myvatn Campsite offers a unique camping experience at the edge of the stunning Lake Myvatn.<br><br>
+                        Immerse yourself in the tranquility of nature, surrounded by geothermal wonders and volcanic landscapes. <br><br>
+                        Choose from a variety of accommodation options, including spacious tent sites, cozy cabins, and RV hookups. <br><br>
+                        Join us for special events like stargazing nights and guided nature walks. Your adventure at Lake Myvatn begins here!
+
+                </p>
+            </div>
+            <div class="article-title-section article-section">
+                <!-- nama tempatnya -->
+                <h2 id="title">Welcome to Lake Myvatn Campsite</h2>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="1" data-status="inactive">
+            <div class="article-image-section article-section" id="pic2"></div>
+            <div class="article-description-section article-section">
+                <!-- artikel 2 -->
+                <p id="artikel2"> Explore our modern amenities designed to enhance your camping experience! From well-maintained camping areas to clean restrooms and hot showers, we've got you covered. <br><br>
+                    Enjoy the warmth of a campfire in our designated fire pit area or relax at our picnic spots with panoramic views of Lake Myvatn. <br><br>
+                    For the active camper, we offer hiking trails and easy access to bird-watching sites, showcasing the rich biodiversity of the area. <br><br>
+                    Pet-friendly policies ensure that your furry companions can join in the adventure.</p>
+            </div>
+            <div class="article-title-section article-section">
+                <!-- nama tempatnya -->
+                <h2>Our Facilities</h2>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="2" data-status="inactive">
+            <div class="article-image-section article-section" id="pic3"></div>
+            <div class="article-description-section article-section">
+                <!-- artikel 3 -->
+                <p id="artikel3"> Our pricing is tailored to meet the needs of every adventurer. Whether you prefer traditional tent camping, the comfort of a cabin, or the convenience of an RV hookup, we have options for all budgets. <br><br>
+                    Check our website for the latest promotions and seasonal discounts. Reservations are easy and can be made online, ensuring a hassle-free planning process. <br><br>
+                    Standard check-in time is at 2:00 PM, and check-out is at 11:00 AM. We accept various payment methods for your convenience.</p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>Pricing and Reservations</h2>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+        <article data-index="3" data-status="inactive">
+            <div class="article-image-section article-section" id="pic4"></div>
+            <div class="article-description-section article-section">
+                <!-- artikel 4 -->
+                <p id="artikel4">
+                    To make the most of your stay, familiarize yourself with our campsite rules and regulations outlined on our website. <br><br>
+                    Pack accordingly for the Icelandic weather—layers, waterproof gear, and sturdy hiking boots are recommended. <br><br>
+                    Explore the nearby Myvatn Nature Baths, Húsavík Whale Watching tours, and the iconic Hverfjall volcano. <br><br>
+                    Contact us at info@lakemyvatncampsite.is for any inquiries or assistance. Join our community on social media to share your Lake Myvatn adventures with fellow campers.
+                </p>
+            </div>
+            <div class="article-title-section article-section">
+                <h2>Know Before You Go</h2>
+            </div>
+            <div class="article-nav-section article-section">
+                <button class="article-nav-button" type="button" onclick="handleLeftClick()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="article-nav-button" type="button" onclick="handleRightClick()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </article>
+    </main>
+</body>
+<script src="konten.js" type="text/javascript"></script>
+
+</html>
