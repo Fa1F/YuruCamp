@@ -90,12 +90,12 @@ $(document).ready(function () {
         // Melakukan AJAX request
         $.get("campsite.js", { search: $('input[name="search"]').val() }, function (data) {
             var responseData;
-            if (typeof data === 'object') {
+            if (typeof data === 'string') {
                 // Data is already an object (possibly parsed), use it directly
-                responseData = data;
+                responseData = JSON.parse(data);
             } else {
                 // Parse the data if it's a string
-                responseData = JSON.parse(data);
+                responseData = data;
             }
             var imageLinks = responseData.links;
             var imgNames = responseData.names;
