@@ -62,7 +62,14 @@ $(document).ready(function () {
 
     // default
     $.get("campsite.js", function (data) {
-        var responseData = JSON.parse(data);
+        var responseData;
+        if (typeof data === 'object') {
+            // Data is already an object (possibly parsed), use it directly
+            responseData = data;
+        } else {
+            // Parse the data if it's a string
+            responseData = JSON.parse(data);
+        }
         var imageLink = responseData.links;
         var imgName = responseData.names;
         var campID = responseData.ids;
@@ -82,7 +89,14 @@ $(document).ready(function () {
 
         // Melakukan AJAX request
         $.get("campsite.js", { search: $('input[name="search"]').val() }, function (data) {
-            var responseData = JSON.parse(data);
+            var responseData;
+            if (typeof data === 'object') {
+                // Data is already an object (possibly parsed), use it directly
+                responseData = data;
+            } else {
+                // Parse the data if it's a string
+                responseData = JSON.parse(data);
+            }
             var imageLinks = responseData.links;
             var imgNames = responseData.names;
             var campID = responseData.ids;
