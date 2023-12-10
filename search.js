@@ -62,7 +62,7 @@ $(document).ready(function () {
 
     // default
     $.get("search.php", function (data) {
-        var responseData = JSON.parse(data);
+        var responseData = data;
         var imageLink = responseData.links;
         var imgName = responseData.names;
         var campID = responseData.ids;
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
         // Melakukan AJAX request
         $.get("search.php", { search: $('input[name="search"]').val() }, function (data) {
-            var responseData = JSON.parse(data);
+            var responseData = data;
             var imageLinks = responseData.links;
             var imgNames = responseData.names;
             var campID = responseData.ids;
