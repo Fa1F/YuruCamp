@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Read data from JSON file
-$jsonData = file_get_contents('campsites.json');
+$jsonData = file_get_contents('campsite.json');
 $campsites = json_decode($jsonData, true)['campsite_en'];
 
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
