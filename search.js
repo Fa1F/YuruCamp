@@ -61,7 +61,7 @@ function handleImageLeave() {
 $(document).ready(function () {
 
     // default
-    $.get("search.php", function (data) {
+    $.get("campsite.js", function (data) {
         var responseData = JSON.parse(data);
         var imageLink = responseData.links;
         var imgName = responseData.names;
@@ -81,7 +81,7 @@ $(document).ready(function () {
         event.preventDefault(); // Biar gak di-refresh
 
         // Melakukan AJAX request
-        $.get("search.php", { search: $('input[name="search"]').val() }, function (data) {
+        $.get("campsite.js", { search: $('input[name="search"]').val() }, function (data) {
             var responseData = JSON.parse(data);
             var imageLinks = responseData.links;
             var imgNames = responseData.names;
